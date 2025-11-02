@@ -11,7 +11,7 @@ const Layout: React.FC = () => {
     const spotify = {
 
         client_id: "bb8d6ef33bf34acb89de729548c86f2b",
-        REDIRECT_URI: "http://192.168.100.78:5173/callback",
+        REDIRECT_URI: "https://spotifyuri.netlify.app/",
         AUTH_ENDPOINT: "https://accounts.spotify.com/authorize",
         RESPONSE_TYPE: "token",
         token: "",
