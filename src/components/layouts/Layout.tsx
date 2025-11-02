@@ -2,10 +2,11 @@ import type React from "react"
 // import { Outlet } from "react-router";
 // import Header from "../pages/Header";
 // import Footer from "../pages/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 const Layout: React.FC = () => {
+
 
 
     const spotify = {
@@ -53,20 +54,15 @@ const Layout: React.FC = () => {
         let token = window.localStorage.getItem("token");
 
         if (!token && hash) {
+            
             token = hash
                 ?.substring(1)
                 ?.split("&")
-                ?.find((elem) => elem.startsWith("access_token"))
+                ?.find(elem => elem.startsWith("access_token"))
                 ?.split("=")[1] ?? null;
 
-            window.location.href = "";
+            window.location.hash = "";
             window.localStorage.setItem("token", token || "");
-        }
-
-        if (token) {
-
-            fetchUserData(token)
-
         }
 
     }, []);
