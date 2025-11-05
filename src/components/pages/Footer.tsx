@@ -92,8 +92,6 @@ function Footer() {
 
                     </div>
 
-
-
                     <div className="flex items-start space-x-4 mt-6 md:mt-0">
 
                         <div className="bg-gray-800 p-3 rounded-full hover:bg-gray-700 cursor-pointer">
