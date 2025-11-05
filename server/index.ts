@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 const client_id = "bb8d6ef33bf34acb89de729548c86f2b";
 const redirect_uri = "http://127.0.0.1:3000/callback";
-const client_secret = "066e002b015a41718dff53cdd5b8973a";
+const client_secret = "CLIENT_SECRET";
 const stateKey = "some-state-of-my-choice";
 
 // пример API как в Next.js
