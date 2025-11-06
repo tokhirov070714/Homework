@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import Album from "../custom/Album";
 import AlbumCover from "../custom/AlbumCover";
+import Aside from "../custom/Aside";
 
 
 type SavedAlbum = {
@@ -40,9 +41,11 @@ const Main: React.FC = () => {
 
 	return (
 
-		<div className="py-0 px-4">
+		<div className="py-0 flex gap-3">
 
-			<div>
+			<Aside />
+
+			<div className="px-4">
 
 				<div className="max-w-[80%] mt-5 mx-auto grid gap-2 grid-cols-4">
 
