@@ -6,9 +6,9 @@ function Footer() {
 
     return (
 
-        <div className="px-4">
+        <div className="ml-2 px-4">
 
-            <footer className="bg-black text-gray-400 px-12 py-10">
+            <footer className="bg-black text-gray-400 max-w-7xl mx-auto ml-25 py-10">
 
                 <div className="flex flex-wrap justify-between border-b border-t border-gray-700 py-12">
 
@@ -27,8 +27,6 @@ function Footer() {
                         </ul>
 
                     </div>
-
-
 
                     <div>
 
@@ -115,8 +113,6 @@ function Footer() {
                     </div>
 
                 </div>
-
-
 
                 <div className="flex flex-wrap justify-between items-center mt-6 text-sm">
 

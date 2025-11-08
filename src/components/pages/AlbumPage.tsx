@@ -1,5 +1,5 @@
 import { fetchData } from "@/lib/api";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 import { FaShuffle } from "react-icons/fa6";
@@ -8,6 +8,7 @@ import { FaClock } from "react-icons/fa6";
 
 import Song from "../custom/Song";
 import Play3 from "../custom/Play3";
+import { TrackCTX } from "../layouts/Layout";
 
 type Album = {
 
@@ -17,7 +18,7 @@ type Album = {
 
 }
 
-export type Track = {
+type Track = {
 
     id: string;
     name: string;
@@ -30,19 +31,30 @@ function AlbumPage() {
 
     const { albumId } = useParams()
 
+    const { setTrackId } = useContext(TrackCTX)
+
     const [tracks, setTracks] = useState<Track[]>([])
     const [album, setAlbum] = useState<Album>()
 
+    const [trackIDS, setTrackIDS] = useState([])
+
     useEffect(() => {
 
-        fetchData(`/albums/${albumId}/tracks`).then((res) => setTracks(res.items));
+        fetchData(`/albums/${albumId}/tracks`).then((res) => {
+
+            setTracks(res.items)
+
+            const ids = res.items.map(item => item.id)
+            setTrackIDS(ids)
+
+        });
         fetchData(`/albums/${albumId}`).then((res) => setAlbum(res));
 
     }, [albumId]);
 
     return (
 
-        <div className=" mx-auto">
+        <div className="mx-auto w-full">
 
             <div className="py-5 px-15 bg-[#0f0f1d] flex items-end gap-8">
 
@@ -64,8 +76,17 @@ function AlbumPage() {
 
             <div className="px-8 mt-5 flex items-center gap-10">
 
-                <Play3 />
-                <div className="cursor-pointer"><FaShuffle color="gray" size={35} /></div>
+                <Play3 id={trackIDS[0]} />
+                <div
+
+                    onClick={() => {
+
+                        console.log(trackIDS[Math.floor(Math.random() * trackIDS.length)]);
+                        setTrackId(trackIDS[Math.floor(Math.random() * trackIDS.length)])
+
+                    }}
+
+                    className="cursor-pointer"><FaShuffle color="gray" size={35} /></div>
                 <div className="cursor-pointer"><GoPlusCircle color="gray" size={35} /></div>
 
             </div>
@@ -95,7 +116,7 @@ function AlbumPage() {
 
                         {
                             tracks.map((item, index) => (
-                                <Song key={item.id} number={index + 1} title={item.name} artist={item.artists[0].name} ms={item.duration_ms} />
+                                <Song key={item.id} id={item.id} number={index + 1} title={item.name} artist={item.artists[0].name} ms={item.duration_ms} />
                             ))
                         }
 

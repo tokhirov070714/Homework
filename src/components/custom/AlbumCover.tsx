@@ -20,7 +20,7 @@ function AlbumCover({ image, name, artist }) {
 
     return (
 
-        <div onMouseEnter={mouseIn} onMouseLeave={mouseOut} className="w-[210px] h-[250px] cursor-pointer rounded-xl p-4 mx-auto transition duration-300 ease-in-out hover:bg-linear-to-b hover:from-[#FFFFFF4D] hover:to-transparent relative">
+        <div onMouseEnter={mouseIn} onMouseLeave={mouseOut} className="w-full h-[250px] cursor-pointer rounded-xl p-4 mx-auto transition duration-300 ease-in-out hover:bg-linear-to-b hover:from-[#FFFFFF4D] hover:to-transparent relative">
 
             <div className="rounded-xl">
 

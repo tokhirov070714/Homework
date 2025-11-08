@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoIosPlay } from "react-icons/io";
+import { TrackCTX } from "../layouts/Layout";
 
-export type Track = {
+type Track = {
 
+    id: string;
     number: number;
     title: string;
     artist: string;
@@ -10,9 +12,11 @@ export type Track = {
 
 };
 
-function Song({ number, title, artist, ms }: Track) {
+function Song({ id, number, title, artist, ms }: Track) {
 
     const [hovered, setHovered] = useState(false)
+    
+    const { setTrackId } = useContext(TrackCTX);
 
     const formatDuration = (ms: number) => {
 
@@ -24,7 +28,7 @@ function Song({ number, title, artist, ms }: Track) {
 
     return (
 
-        <div onMouseEnter={() => setHovered(true)} onMouseOut={() => setHovered(false)} className="max-w-7xl mx-auto px-1 flex items-center justify-between py-3 rounded-md hover:bg-gray-800 cursor-pointer">
+        <div onClick={() => setTrackId(id)} onMouseEnter={() => setHovered(true)} onMouseOut={() => setHovered(false)} className="max-w-7xl mx-auto px-1 flex items-center justify-between py-3 rounded-md hover:bg-gray-800 cursor-pointer">
 
             <div className="flex items-center gap-4">
 

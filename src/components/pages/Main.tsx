@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 
 import Album from "../custom/Album";
 import AlbumCover from "../custom/AlbumCover";
-import Aside from "../custom/Aside";
 
 
 type SavedAlbum = {
@@ -43,11 +42,9 @@ const Main: React.FC = () => {
 
 		<div className="py-0 flex gap-3">
 
-			<Aside />
-
 			<div className="px-4">
 
-				<div className="max-w-[80%] mt-5 mx-auto grid gap-2 grid-cols-4">
+				<div className="w-full px-4 mt-5 mx-auto grid gap-2 grid-cols-4">
 
 					{
 						albums.map((item) => (
@@ -57,9 +54,9 @@ const Main: React.FC = () => {
 
 				</div>
 
-				<div className="px-12 mt-10">
+				<div className="mt-10">
 
-					<h1 className="text-bold text-2xl">Recommended for you today</h1>
+					<h1 className="pl-4 text-bold text-2xl">Recommended for you today</h1>
 
 					<div className="grid grid-cols-6 mt-5">
 
@@ -80,10 +77,10 @@ const Main: React.FC = () => {
 
 				</div>
 
-				<div className="px-12 mt-10">
+				<div className="mt-10">
 
-					<p className="text-xs text-gray-500">More like</p>
-					<h1 className="text-bold text-2xl">Miyagi</h1>
+					<p className="pl-4 text-xs text-gray-500">More like</p>
+					<h1 className="pl-4 text-bold text-2xl">Miyagi</h1>
 
 					<div className="grid grid-cols-6 mt-5">
 
