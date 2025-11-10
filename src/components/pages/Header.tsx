@@ -8,12 +8,13 @@ import { IoPeople } from "react-icons/io5";
 
 import { fetchData } from "@/lib/api";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 function Header() {
 
     const [username, setUsername] = useState<string>("")
     const [image, setImage] = useState<string>("")
-
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -45,7 +46,11 @@ function Header() {
 
                         <div className="w-12 h-12 cursor-pointer rounded-full flex items-center justify-center bg-[#1f1f1f]">
 
-                            <MdHomeFilled color="white" size={32} />
+                            <div onClick={() => navigate("/")}>
+
+                                <MdHomeFilled color="white" size={32} />
+
+                            </div>
 
                         </div>
 
@@ -95,8 +100,6 @@ function Header() {
                         <div className="flex items-center justify-center p-1.5 w-12 h-12 rounded-full overflow-hidden bg-[#1f1f1f]">
 
                             <div className="bg-[#f573a0] overflow-hidden cursor-pointer w-full h-full rounded-full flex items-center justify-center">
-
-                                {/* <p className="text-base text-center">{username}</p> */}
 
                                 {
 

@@ -2,7 +2,9 @@ import { useContext } from "react";
 import { FaPlay } from "react-icons/fa";
 import { TrackCTX } from "../layouts/Layout";
 
-function Play3({ id }) {
+
+
+function Play3({ id }: { id: string }) {
 
     const { setTrackId } = useContext(TrackCTX)
 

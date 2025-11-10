@@ -66,6 +66,7 @@ const Main: React.FC = () => {
 								.map((item) => (
 									<AlbumCover
 										key={item.id}
+										id={item.id}
 										name={item.name}
 										image={item.images[2].url}
 										artist={item.artists.map(a => a.name).join(", ")}
@@ -88,6 +89,7 @@ const Main: React.FC = () => {
 							miyagi.map((item) => (
 								<AlbumCover
 									key={item.id}
+									id={item.id}
 									name={item.name}
 									image={item.images[1].url}
 									artist={item.artists.map(a => a.name).join(", ")}

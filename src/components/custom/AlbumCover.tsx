@@ -1,7 +1,18 @@
 import { useState } from "react";
 import Play2 from "./Play2";
+import { Link } from "react-router";
 
-function AlbumCover({ image, name, artist }) {
+
+type Album = {
+
+    id: string;
+    image: string;
+    name: string;
+    artist: string;
+
+}
+
+function AlbumCover({ id, image, name, artist }: Album) {
 
     const [hovered, setHovered] = useState(false)
 
@@ -20,28 +31,32 @@ function AlbumCover({ image, name, artist }) {
 
     return (
 
-        <div onMouseEnter={mouseIn} onMouseLeave={mouseOut} className="w-full h-[250px] cursor-pointer rounded-xl p-4 mx-auto transition duration-300 ease-in-out hover:bg-linear-to-b hover:from-[#FFFFFF4D] hover:to-transparent relative">
+        <Link to={`/album/${id}`}>
 
-            <div className="rounded-xl">
+            <div onMouseEnter={mouseIn} onMouseLeave={mouseOut} className="w-full h-[250px] cursor-pointer rounded-xl p-4 mx-auto transition duration-300 ease-in-out hover:bg-linear-to-b hover:from-[#FFFFFF4D] hover:to-transparent relative">
 
-                <img className="rounded-xl" src={image} alt="" />
+                <div className="rounded-xl">
 
-                {
+                    <img className="rounded-xl" src={image} alt="" />
 
-                    hovered ? <Play2 /> : ""
+                    {
 
-                }
+                        hovered ? <Play2 /> : ""
+
+                    }
+
+                </div>
+
+                <div className="mt-3">
+
+                    <p className="text-sm truncate w-40">{name}</p>
+                    <p className="text-xs text-gray-400 mt-1">{artist}</p>
+
+                </div>
 
             </div>
 
-            <div className="mt-3">
-
-                <p className="text-sm truncate w-40">{name}</p>
-                <p className="text-xs text-gray-400 mt-1">{artist}</p>
-
-            </div>
-
-        </div>
+        </Link>
 
     )
 
