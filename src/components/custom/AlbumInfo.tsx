@@ -1,5 +1,5 @@
 import { fetchData } from "@/lib/api";
-import { createContext, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { TbLayoutSidebarLeftExpand } from "react-icons/tb";
 import { BsArrowsAngleExpand } from "react-icons/bs";
@@ -19,6 +19,7 @@ type Images = {
     images: { url: string }[];
 
 }
+
 function AlbumInfo({ id }: { id: string; }) {
 
     const { images } = useContext(AlbumImages)
@@ -56,7 +57,7 @@ function AlbumInfo({ id }: { id: string; }) {
             className={
 
                 expand ? "px-25 pb-10 mb-20 top-20 bottom-0 left-0 right-0 w-full h-full bg-black transition-discrete duration-500 overflow-auto"
-                    : "fixed right-0 top-20 z-1 h-min-full bg-black py-10 px-5 w-65 h-screen"
+                    : "fixed right-0 top-20 z-1 h-min-full bg-black py-10 px-5 w-65 h-screen transition-discrete duration-500 overflow-auto"
 
             }
 
